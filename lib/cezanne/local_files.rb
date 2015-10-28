@@ -27,8 +27,7 @@ module Cezanne
     private
 
       def setup_directory_for key
-        FileUtils.rm_rf path_for(key)
-        FileUtils.mkdir_p path_for(key)
+        FileUtils.mkdir_p path_for(key) unless File.exists?(path_for(key))
       end
 
   end
